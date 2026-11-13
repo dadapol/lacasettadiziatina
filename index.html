@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Casetta di Zia Tina – Casa vacanze a Conca Specchiulla, Otranto</title>
+    <meta name="description" content="La Casetta di Zia Tina: villetta con doppio patio nella pineta del Villaggio Conca Specchiulla, a pochi minuti dalle calette di Otranto e della costa salentina.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --sea: #0b4f6c;
+            --sea-deep: #083a50;
+            --tile: #14a39a;
+            --tile-soft: #e3f5f3;
+            --sand: #faf7f2;
+            --ink: #1f2a30;
+            --muted: #5d6b72;
+            --line: #e7e2d9;
+            --wa: #25d366;
+            --radius: 14px;
+            --shadow: 0 10px 30px rgba(8, 58, 80, 0.10);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--ink);
+            background: var(--sand);
+            line-height: 1.65;
+            font-size: 17px;
+        }
+        img { display: block; max-width: 100%; }
+        h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.15; color: var(--sea-deep); }
+        h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); }
+        h3 { font-size: 1.2rem; }
+        a { color: inherit; }
+
+        .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+        .eyebrow {
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--tile);
+        }
+        section { padding: 96px 0; }
+
+        /* ---------- Header ---------- */
+        header {
+            position: fixed; inset: 0 0 auto 0; z-index: 50;
+            transition: background .3s, box-shadow .3s;
+        }
+        header.solid { background: rgba(250, 247, 242, 0.96); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(8px); }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { text-decoration: none; color: #fff; font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; transition: color .3s; }
+        header.solid .logo { color: var(--sea-deep); }
+        .links { display: flex; align-items: center; gap: 28px; list-style: none; }
+        .links a { text-decoration: none; color: #fff; font-weight: 500; font-size: 0.95rem; transition: color .3s; }
+        header.solid .links a { color: var(--ink); }
+        .links a:hover { color: var(--tile) !important; }
+        .links .btn-nav {
+            background: var(--tile); color: #fff !important; padding: 10px 18px; border-radius: 999px;
+        }
+        .links .btn-nav:hover { background: #0f8a82; }
+        .menu-btn { display: none; background: none; border: 0; color: #fff; font-size: 1.5rem; cursor: pointer; }
+        header.solid .menu-btn { color: var(--sea-deep); }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            min-height: 100svh; display: flex; align-items: flex-end;
+            background: linear-gradient(180deg, rgba(8,58,80,.35) 0%, rgba(8,58,80,.05) 35%, rgba(8,30,40,.75) 100%),
+                        url('Foto/1-pichi.jpg') center/cover no-repeat;
+            color: #fff; padding: 0 0 88px;
+        }
+        .hero .eyebrow { color: #bff0ea; }
+        .hero h1 { color: #fff; font-size: clamp(2.6rem, 7vw, 5rem); margin: 12px 0 18px; }
+        .hero p { font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 600px; opacity: .95; }
+        .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600;
+            padding: 15px 26px; border-radius: 999px; transition: transform .2s, background .2s;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-wa { background: var(--wa); color: #fff; }
+        .btn-ghost { border: 1.5px solid rgba(255,255,255,.8); color: #fff; }
+        .btn-ghost:hover { background: rgba(255,255,255,.12); }
+
+        /* ---------- Facts ---------- */
+        .facts { padding: 0; margin-top: -44px; position: relative; z-index: 2; }
+        .facts-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+        }
+        .fact { padding: 26px 22px; display: flex; gap: 14px; align-items: center; border-right: 1px solid var(--line); }
+        .fact:last-child { border-right: 0; }
+        .fact i { font-size: 1.35rem; color: var(--tile); width: 44px; height: 44px; border-radius: 50%; background: var(--tile-soft); display: grid; place-items: center; flex-shrink: 0; }
+        .fact strong { display: block; font-size: 0.98rem; }
+        .fact span { font-size: 0.85rem; color: var(--muted); }
+
+        /* ---------- La casa ---------- */
+        .split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
+        .split p { color: var(--muted); margin-top: 18px; }
+        .split h2 { margin-top: 10px; }
+        .checks { list-style: none; margin-top: 26px; display: grid; gap: 10px; }
+        .checks li { display: flex; gap: 12px; align-items: baseline; }
+        .checks i { color: var(--tile); }
+        .mosaic { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; height: 520px; }
+        .mosaic img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); cursor: zoom-in; }
+        .mosaic img:first-child { grid-row: span 2; }
+
+        /* ---------- Galleria ---------- */
+        #galleria { background: #fff; }
+        .head-center { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+        .head-center p { color: var(--muted); margin-top: 12px; }
+        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; grid-auto-flow: dense; gap: 12px; }
+        .gallery button { border: 0; padding: 0; cursor: zoom-in; overflow: hidden; border-radius: 10px; background: #ddd; }
+        .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+        .gallery button:hover img { transform: scale(1.05); }
+        .gallery .wide { grid-column: span 2; }
+        .gallery .tall { grid-row: span 2; }
+
+        /* ---------- Villaggio ---------- */
+        .village {
+            color: #fff; position: relative;
+            background: linear-gradient(90deg, rgba(8,58,80,.92) 0%, rgba(8,58,80,.75) 50%, rgba(8,58,80,.25) 100%),
+                        url('https://www.villaggioconcaspecchiulla.it/wp-content/uploads/2020/10/Villaggi-appartamenti-ville-sul-mare-vicino-Otranto-nel-Salento-Puglia_F7Q4965-2-768x511.jpg') center/cover no-repeat;
+        }
+        .village h2 { color: #fff; max-width: 560px; margin-top: 10px; }
+        .village .eyebrow { color: #bff0ea; }
+        .village > .wrap > p { max-width: 560px; margin-top: 18px; opacity: .92; }
+        .village-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+        .vcard { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius); padding: 24px; backdrop-filter: blur(6px); }
+        .vcard i { font-size: 1.5rem; color: #bff0ea; }
+        .vcard h3 { color: #fff; margin: 12px 0 6px; }
+        .vcard p { font-size: 0.95rem; opacity: .9; }
+
+        /* ---------- Servizi ---------- */
+        .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .service { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; gap: 16px; }
+        .service i { font-size: 1.3rem; color: var(--tile); margin-top: 4px; width: 26px; text-align: center; }
+        .service p { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+
+        /* ---------- Prenota ---------- */
+        #prenota { background: var(--tile-soft); }
+        .booking { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: start; }
+        .booking p.lead { color: var(--muted); margin: 16px 0 28px; }
+        .info-card { background: #fff; border-radius: var(--radius); padding: 24px; margin-top: 28px; box-shadow: var(--shadow); }
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); }
+        .info-row:last-child { border-bottom: 0; }
+        .info-row span { color: var(--muted); }
+        .form-frame { width: 100%; height: 640px; border: 0; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
+
+        footer { background: var(--sea-deep); color: rgba(255,255,255,.85); padding: 40px 0; font-size: 0.9rem; }
+        footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+        footer small { opacity: .7; }
+
+        .wa-float {
+            position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 58px; height: 58px; border-radius: 50%;
+            background: var(--wa); color: #fff; display: grid; place-items: center; font-size: 1.8rem;
+            box-shadow: 0 8px 24px rgba(37,211,102,.45); text-decoration: none;
+        }
+
+        /* ---------- Lightbox ---------- */
+        .lightbox { position: fixed; inset: 0; background: rgba(5, 20, 28, .94); z-index: 100; display: none; align-items: center; justify-content: center; }
+        .lightbox.open { display: flex; }
+        .lightbox img { max-width: 92vw; max-height: 84vh; border-radius: 8px; }
+        .lb-btn { position: absolute; background: rgba(255,255,255,.12); border: 0; color: #fff; width: 52px; height: 52px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; }
+        .lb-btn:hover { background: rgba(255,255,255,.25); }
+        .lb-prev { left: 20px; } .lb-next { right: 20px; } .lb-close { top: 20px; right: 20px; }
+        .lb-caption { position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; color: #fff; opacity: .85; font-size: .95rem; }
+
+        :focus-visible { outline: 3px solid var(--tile); outline-offset: 3px; }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 900px) {
+            section { padding: 72px 0; }
+            .split, .booking { grid-template-columns: 1fr; gap: 40px; }
+            .mosaic { height: 400px; }
+            .facts-grid { grid-template-columns: 1fr 1fr; }
+            .fact:nth-child(2) { border-right: 0; }
+            .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+            .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
+            .village-cards, .services { grid-template-columns: 1fr; }
+            .menu-btn { display: block; }
+            .links {
+                position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0;
+                background: var(--sand); box-shadow: 0 10px 20px rgba(0,0,0,.08); display: none; padding: 8px 0 16px;
+            }
+            .links.open { display: flex; }
+            .links a { color: var(--ink); display: block; padding: 12px 24px; }
+            .links .btn-nav { margin-top: 8px; }
+        }
+        @media (max-width: 520px) {
+            body { font-size: 16px; }
+            .wrap { padding: 0 16px; }
+            .facts-grid { grid-template-columns: 1fr; }
+            .fact { border-right: 0; border-bottom: 1px solid var(--line); }
+            .gallery .wide { grid-column: span 2; }
+            .lb-prev, .lb-next { bottom: 60px; top: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<header id="top">
+    <div class="wrap nav">
+        <a href="#" class="logo">La Casetta di Zia Tina</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Apri il menu" aria-expanded="false" aria-controls="links"><i class="fa-solid fa-bars"></i></button>
+        <ul class="links" id="links">
+            <li><a href="#casa">La casa</a></li>
+            <li><a href="#galleria">Foto</a></li>
+            <li><a href="#villaggio">Il villaggio</a></li>
+            <li><a href="#servizi">Servizi</a></li>
+            <li><a href="#prenota" class="btn-nav">Prenota</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="wrap">
+        <div class="eyebrow">Villaggio Conca Specchiulla · Otranto</div>
+        <h1>La Casetta di Zia Tina</h1>
+        <p>La tua casa al mare nel Salento: una villetta luminosa con doppio patio, immersa nella pineta e a pochi minuti dalle calette della costa adriatica.</p>
+        <div class="hero-ctas">
+            <a class="btn btn-wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/393512592582?text=Ciao,%20vorrei%20sapere%20la%20disponibilit%C3%A0%20de%20La%20Casetta%20di%20Zia%20Tina."><i class="fa-brands fa-whatsapp"></i> Verifica le date</a>
+            <a class="btn btn-ghost" href="#galleria"><i class="fa-regular fa-images"></i> Guarda la casa</a>
+        </div>
+    </div>
+</div>
+
+<!-- FACTS -->
+<section class="facts">
+    <div class="wrap">
+        <div class="facts-grid">
+            <div class="fact"><i class="fa-solid fa-sun"></i><div><strong>Doppio patio</strong><span>coperto e soleggiato</span></div></div>
+            <div class="fact"><i class="fa-solid fa-snowflake"></i><div><strong>Aria condizionata</strong><span>nelle zone principali</span></div></div>
+            <div class="fact"><i class="fa-solid fa-square-parking"></i><div><strong>Posto auto</strong><span>riservato nel villaggio</span></div></div>
+            <div class="fact"><i class="fa-solid fa-tree"></i><div><strong>Nella pineta</strong><span>villaggio custodito</span></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- LA CASA -->
+<section id="casa">
+    <div class="wrap split">
+        <div>
+            <div class="eyebrow">La casa</div>
+            <h2>Fresca, luminosa e pensata per l'estate</h2>
+            <p>Pavimenti in maiolica color acquamarina, pareti bianche e porte-finestre che si aprono sul patio: la Casetta di Zia Tina è semplice da vivere e accogliente fin dal primo giorno.</p>
+            <p>All'interno trovi un soggiorno con divano e tavolo da pranzo, la cucina attrezzata, la camera matrimoniale, la camera con letti singoli e il bagno con doccia. Fuori, gli spazi che fanno la differenza: un patio coperto per pranzi e cene all'aperto e un cortile al sole con i lettini.</p>
+            <ul class="checks">
+                <li><i class="fa-solid fa-check"></i> Ingressi indipendenti</li>
+                <li><i class="fa-solid fa-check"></i> Lavatrice e stendino</li>
+                <li><i class="fa-solid fa-check"></i> Spiagge e calette raggiungibili in pochi minuti</li>
+            </ul>
+        </div>
+        <div class="mosaic">
+            <img src="Foto/1-pichi.jpg" alt="Soggiorno con divano blu e pavimento in maiolica" data-index="0">
+            <img src="Foto/12-pichi.jpg" alt="Cucina attrezzata" data-index="8">
+            <img src="Foto/5-pichi.jpg" alt="Camera da letto matrimoniale" data-index="3">
+        </div>
+    </div>
+</section>
+
+<!-- GALLERIA -->
+<section id="galleria">
+    <div class="wrap">
+        <div class="head-center">
+            <div class="eyebrow">Galleria</div>
+            <h2>Entra nella casetta</h2>
+            <p>Interni ed esterni, così come li troverai. Clicca su una foto per ingrandirla.</p>
+        </div>
+        <div class="gallery" id="gallery"></div>
+    </div>
+</section>
+
+<!-- VILLAGGIO -->
+<section id="villaggio" class="village">
+    <div class="wrap">
+        <div class="eyebrow">Il villaggio</div>
+        <h2>Nella pineta di Conca Specchiulla, a due passi dal mare</h2>
+        <p>A nord di Otranto, il Villaggio Conca Specchiulla è immerso in una pineta ombreggiata e lontano dal traffico: un posto sicuro per i bambini, perfetto per passeggiare o muoversi in bicicletta. La Baia dei Turchi e i Laghi Alimini sono a pochi minuti.</p>
+        <div class="village-cards">
+            <div class="vcard"><i class="fa-solid fa-tree"></i><h3>Pineta</h3><p>Sentieri all'ombra dei pini che portano a piedi verso la scogliera e le calette.</p></div>
+            <div class="vcard"><i class="fa-solid fa-water"></i><h3>Mare limpido</h3><p>Piccole spiagge tra le rocce, fondali bassi e acqua cristallina.</p></div>
+            <div class="vcard"><i class="fa-solid fa-location-dot"></i><h3>Posizione</h3><p>10 km dal centro storico di Otranto, vicino a Torre dell'Orso e Sant'Andrea.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVIZI -->
+<section id="servizi">
+    <div class="wrap">
+        <div class="head-center">
+            <div class="eyebrow">Servizi</div>
+            <h2>Tutto quello che serve, già pronto</h2>
+        </div>
+        <div class="services">
+            <div class="service"><i class="fa-solid fa-snowflake"></i><div><h3>Aria condizionata</h3><p>Climatizzazione regolabile nelle zone principali della casa.</p></div></div>
+            <div class="service"><i class="fa-solid fa-utensils"></i><div><h3>Cucina attrezzata</h3><p>Piano cottura a gas, forno, frigorifero con freezer, stoviglie e pentole.</p></div></div>
+            <div class="service"><i class="fa-solid fa-square-parking"></i><div><h3>Posto auto</h3><p>Parcheggio dedicato nelle aree di sosta del villaggio.</p></div></div>
+            <div class="service"><i class="fa-solid fa-shirt"></i><div><h3>Lavatrice e stendino</h3><p>Comodi sia per un weekend che per una vacanza lunga.</p></div></div>
+            <div class="service"><i class="fa-solid fa-umbrella-beach"></i><div><h3>Patio attrezzato</h3><p>Tavolo e sedie all'ombra, lettini al sole.</p></div></div>
+            <div class="service"><i class="fa-solid fa-user-shield"></i><div><h3>Villaggio custodito</h3><p>Accesso riservato a residenti e ospiti, per privacy e tranquillità.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- PRENOTA -->
+<section id="prenota">
+    <div class="wrap booking">
+        <div>
+            <div class="eyebrow">Prenota</div>
+            <h2>Scrivici le tue date</h2>
+            <p class="lead">Per disponibilità e preventivi rispondiamo direttamente su WhatsApp. Se preferisci, compila il modulo: ti ricontattiamo noi.</p>
+            <a class="btn btn-wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/393512592582?text=Ciao,%20vorrei%20sapere%20la%20disponibilit%C3%A0%20de%20La%20Casetta%20di%20Zia%20Tina."><i class="fa-brands fa-whatsapp"></i> Scrivi su WhatsApp</a>
+            <div class="info-card">
+                <div class="info-row"><span>Check-in</span><strong>dalle 15:00</strong></div>
+                <div class="info-row"><span>Check-out</span><strong>entro le 10:00</strong></div>
+                <div class="info-row"><span>Telefono</span><strong>+39 351 259 2582</strong></div>
+                <div class="info-row"><span>Dove</span><strong>Conca Specchiulla, Otranto (LE)</strong></div>
+            </div>
+        </div>
+        <iframe class="form-frame" src="https://docs.google.com/forms/d/1Y33EjuCfG9dGQicNnO-0CsFumdjiQsFJabWraT6bc_g/viewform?embedded=true" title="Modulo richiesta prenotazione" loading="lazy">Caricamento del modulo…</iframe>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <span>&copy; 2026 La Casetta di Zia Tina · Villaggio Conca Specchiulla, Otranto</span>
+        <small>Foto del villaggio: <a href="https://www.villaggioconcaspecchiulla.it/conca-specchiulla/" target="_blank" rel="noopener noreferrer">Villaggio Conca Specchiulla</a></small>
+    </div>
+</footer>
+
+<a class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Scrivici su WhatsApp" href="https://wa.me/393512592582?text=Ciao,%20vorrei%20sapere%20la%20disponibilit%C3%A0%20de%20La%20Casetta%20di%20Zia%20Tina."><i class="fa-brands fa-whatsapp"></i></a>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ingrandita">
+    <img id="lbImg" alt="">
+    <button class="lb-btn lb-close" id="lbClose" aria-label="Chiudi"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Foto precedente"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Foto successiva"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<script>
+    const photos = [
+        ['1-pichi.jpg', 'Soggiorno con divano blu', 'wide'],
+        ['2-pichi.jpg', 'Zona giorno e tavolo da pranzo', ''],
+        ['3-pichi.jpg', 'Esterno della villetta', 'tall'],
+        ['5-pichi.jpg', 'Camera da letto matrimoniale', ''],
+        ['7-pichi.jpg', 'Camera con letti singoli', ''],
+        ['9-pichi.jpg', 'Bagno con doccia', 'tall'],
+        ['10-pichi.jpg', 'Bagno', 'tall'],
+        ['11-pichi.jpg', 'Corridoio interno', 'tall'],
+        ['12-pichi.jpg', 'Cucina attrezzata', 'wide'],
+        ['13-pichi.jpg', 'Patio con pergolato', 'wide'],
+        ['IMG_0638.JPG', 'Veranda coperta con tavolo da pranzo', 'wide'],
+        ['IMG_0637.JPG', 'Patio con lettini prendisole', ''],
+        ['15-pichi.jpg', 'Cortile soleggiato', 'tall'],
+        ['16-pichi.jpg', 'Terrazzino con panca in muratura', ''],
+        ['14-pichi.jpg', 'Cortile con ripostigli', '']
+    ];
+
+    const gallery = document.getElementById('gallery');
+    photos.forEach(([file, alt, size], i) => {
+        const b = document.createElement('button');
+        if (size) b.className = size;
+        b.setAttribute('aria-label', 'Ingrandisci: ' + alt);
+        b.innerHTML = `<img src="Foto/${file}" alt="${alt}" loading="lazy">`;
+        b.addEventListener('click', () => openLb(i));
+        gallery.appendChild(b);
+    });
+    document.querySelectorAll('.mosaic img').forEach(img => {
+        img.addEventListener('click', () => openLb(Number(img.dataset.index)));
+    });
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCaption = document.getElementById('lbCaption');
+    let cur = 0;
+    function show(i) {
+        cur = (i + photos.length) % photos.length;
+        lbImg.src = 'Foto/' + photos[cur][0];
+        lbImg.alt = photos[cur][1];
+        lbCaption.textContent = `${photos[cur][1]} · ${cur + 1} / ${photos.length}`;
+    }
+    function openLb(i) { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    document.getElementById('lbPrev').onclick = () => show(cur - 1);
+    document.getElementById('lbNext').onclick = () => show(cur + 1);
+    document.getElementById('lbClose').onclick = closeLb;
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLb();
+        if (e.key === 'ArrowLeft') show(cur - 1);
+        if (e.key === 'ArrowRight') show(cur + 1);
+    });
+    let touchX = null;
+    lb.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+        touchX = null;
+    });
+
+    // Header + menu
+    const header = document.getElementById('top');
+    const onScroll = () => header.classList.toggle('solid', window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const menuBtn = document.getElementById('menuBtn');
+    const links = document.getElementById('links');
+    menuBtn.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+        header.classList.add('solid');
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        links.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+</script>
+</body>
+</html>
